@@ -6,7 +6,7 @@ It serves as a hands-on demonstration of how servers are deployed and made acces
 
 ## Architecture diagram
 
-![image alt](Architecture diagram)
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/c4555fed20b93c55bdaed494940d5652a82aed3f/Images/Deployment%20architecture.png)
 
 ## Technologies used
 
@@ -20,7 +20,7 @@ It serves as a hands-on demonstration of how servers are deployed and made acces
 A domain was purchased from Cloudflare.
 For this setup I used `adebowale.co.uk`
 
-![image alt](Domain status)
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/87c5cfac877fc3006770884f1de1134c702a5293/Images/Domain%20status.png)
 
 ## Setting up the EC2 instance
 
@@ -30,13 +30,13 @@ I used Ubuntu as the AMI since I'm more familiar with it.
 
 For the instance type, `t3.micro` was chosen as it’s free-tier eligible and cheap to run.
 
-![image alt](AWS AMI setup)
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/87c5cfac877fc3006770884f1de1134c702a5293/Images/AWS%20AMI%20%26%20Instance%20type.png)
 
 A key pair was created to allow SSH access to the instance later.
 
 Under **Network settings**, SSH traffic (restricted to **My IP**), HTTPS, and HTTP were enabled to allow remote access and web traffic.
 
-![image alt](Instance network)
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/87c5cfac877fc3006770884f1de1134c702a5293/Images/AWS%20Key%20pair%20%26%20Network%20settings.png)
 
 ### After launching:
 Once the instance was running, I went to **EC2 -> Instances** and noted down the **Public IPv4 address** (e.g., `23.170.8.12`).
@@ -50,7 +50,7 @@ This maps the domain to the EC2 instance’s public IPv4 address, allowing users
 
 The record name (subdomain prefix) was set to **nginx** and pointed to the EC2 Public IPv4 address.
 
-![image alt](DNS management)
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/87c5cfac877fc3006770884f1de1134c702a5293/Images/DNS%20management.png)
 
 ## Accessing the instance via SSH
 The SSH connection details were accessed from the **SSH client** tab in the instance's **Connect** section of the AWS console.
@@ -74,13 +74,13 @@ To verify everything was set up correctly, I ran `nslookup <nginx.your.domain>` 
 * `nslookup` checks DNS and shows what IP the domain points to.
 * `ping` checks if the server responds and measures latency.
 
-![image alt](Terminal image)
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/87c5cfac877fc3006770884f1de1134c702a5293/Images/Terminal%20nslookup%20and%20ping%20test.png)
 
 Once DNS was working and the server was reachable, the application was accessed in the browser at: `http://nginx.adebowale.co.uk`
 
 If configured correctly, the default Nginx landing page should appear.
 
-![image alt](Nginx on domain)
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/87c5cfac877fc3006770884f1de1134c702a5293/Images/Ngnix%20linked%20to%20domain.png)
 
 ## Troubleshooting
 
