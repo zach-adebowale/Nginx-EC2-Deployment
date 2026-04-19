@@ -6,7 +6,39 @@ It serves as a hands-on demonstration of how servers are deployed and made acces
 
 ## Architecture diagram
 
-![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/c4555fed20b93c55bdaed494940d5652a82aed3f/Images/Deployment%20architecture.png)
+            +----------------+----------------+
+            |            Browser              |
+            |  http://nginx.adebowale.co.uk   |
+            +----------------+----------------+
+                             |
+                             v 
+                 +-----------------------+
+                 |      Cloudflare       |
+                 |    DNS (A record)     |
+                 |  nginx -> Public IPv4 |
+                 +-----------+-----------+
+                             |
+                             v 
+              +-----------------------------+
+              |           AWS EC2           |
+              |-----------------------------|
+              |  Ubuntu (t3.micro)          |
+              |  Nginx (running)            |
+              |                             |
+              |  Public IPv4                |
+              |                             |
+              |  Security Group:            |
+              |   - 22 (SSH - My IP)        |
+              |   - 80 (HTTP - in use)      |
+              |   - 443 (HTTPS - optional)  |
+              +--------------+--------------+
+                             ^
+                             |
+                  +----------+----------+
+                  |      SSH Client     |
+                  |  (User’s Computer)  |
+                  | SSH Key Pair (.pem) |
+                  +---------------------+
 
 ## Technologies used
 
