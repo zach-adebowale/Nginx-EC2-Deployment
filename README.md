@@ -114,6 +114,20 @@ If configured correctly, the default Nginx landing page should appear.
 
 ![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/87c5cfac877fc3006770884f1de1134c702a5293/Images/Ngnix%20linked%20to%20domain.png)
 
+## Updating the Nginx landing page
+ 
+Whilst in the instance, open the default Nginx HTML file in a text editor:
+ 
+```bash
+sudo nano /var/www/html/index.html
+```
+ 
+Replace the contents with your own HTML, then save and exit the nano file.
+ 
+The page updates immediately, no Nginx restart required. Visit your domain to confirm the changes.
+
+![image alt](https://github.com/zach-adebowale/Nginx-EC2-Deployment/blob/19f8d8f2ea0f692586972e07eaf4d9cc8c25c547/Images/Nginx%20landing%20page%20with%20HTML.png)
+
 ## Troubleshooting
 
 1. When accessing **nginx.adebowale.co.uk**, a **Web server is down** error came up in the browser.
@@ -124,4 +138,4 @@ This happened because the browser defaulted to HTTPS. Since the server was confi
 * Configure HTTPS 
 * Redirect HTTP to HTTPS
 * Replace Public IPv4 with an Elastic IP
-* Create a simple HTML landing page
+
