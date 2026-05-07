@@ -116,11 +116,7 @@ If configured correctly, the default Nginx landing page should appear.
 
 ## Updating the Nginx landing page
  
-Whilst in the instance, open the default Nginx HTML file in a text editor:
- 
-```bash
-sudo nano /var/www/html/index.html
-```
+Whilst in the instance, open the default Nginx HTML file in a text editor: `sudo nano /var/www/html/index.html`
  
 Replace the contents with your own HTML, then save and exit the nano file.
  
